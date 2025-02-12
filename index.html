@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectar a Base de Datos</title>
+</head>
+<body>
+    <h1>Productos</h1>
+    <ul id="productos"></ul>
+    <script>
+        fetch('https://tu-usuario.github.io/tu-repositorio/data.json')
+            .then(response => response.json())
+            .then(data => {
+                const lista = document.getElementById('productos');
+                data.forEach(producto => {
+                    const item = document.createElement('li');
+                    item.textContent = `${producto.nombre} - $${producto.precio}`;
+                    lista.appendChild(item);
+                });
+            });
+    </script>
+</body>
+</html>
